@@ -1,4 +1,5 @@
 import React from "react";
+import test1Example from "./test1_example.png";
 
 // eslint-disable-next-line
 const ITEMS = [
@@ -26,6 +27,8 @@ const Test1 = () => {
           Iga toote kohta peab olema nimi ja hind.
           Iga toode peab olema uuel real.
         </p>
+        <div>Näiteks:</div>
+        <img style={{width: 200}} src={test1Example}/>
       </div>
       <div>
         [replace me]
