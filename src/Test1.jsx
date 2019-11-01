@@ -1,5 +1,6 @@
 import React from "react";
 import test1Example from "./test1_example.png";
+import PropTypes from "prop-types";
 
 // eslint-disable-next-line
 const ITEMS = [
@@ -17,6 +18,39 @@ const ITEMS = [
   }
 ];
 
+const Items = () => {
+  return (
+      <div className={"items"}>
+        {
+          ITEMS.map( item => {
+            return <Item name={item.name} price={item.price} key={item.name}/>;
+          })
+        }
+      </div>
+  );
+};
+
+const Item = (props) => {
+  return(
+      <div>
+        Name: {props.name} Price: {props.price}
+      </div>
+  );
+};
+
+Item.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number
+};
+
+const ItemSum = () => {
+  var sum = 0;
+  ITEMS.forEach(item => {
+    sum = sum + item.price;
+  });
+  return sum;
+};
+
 const Test1 = () => {
   return (
     <div>
@@ -31,9 +65,9 @@ const Test1 = () => {
         <img style={{width: 200}} src={test1Example}/>
       </div>
       <div>
-        [replace me]
+        <Items/>
       </div>
-      <div><span className={"bold"}>Summa kokku:</span> [replace me]</div>
+      <div><span className={"bold"}>Summa kokku:</span> <ItemSum/></div>
     </div>
   );
 };
