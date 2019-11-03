@@ -47,6 +47,8 @@ body{
 code {
   background: #dddddd;
   padding: 3px;
+  margin-left:5px;
+  margin-right: 5px;
 }
 
 svg{
@@ -57,4 +59,8 @@ svg{
 svg:hover{
   cursor: pointer;
   color: red;
+}
+
+p{
+  line-height: 32px;
 }

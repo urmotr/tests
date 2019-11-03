@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import "typeface-roboto";
 import Test1 from "./Test1.jsx";
 import Test2 from "./Test2.jsx";
+import Test3 from "./Test3.jsx";
 
 const App = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => (
         <Route path="/" exact component={Home} />
         <Route path="/test/1" exact component={Test1} />
         <Route path="/test/2" exact component={Test2} />
+        <Route path="/test/3" exact component={Test3} />
         <Route component={NotFound} />
       </Switch>
     </Layout>
@@ -40,8 +42,9 @@ Layout.propTypes = {
 const Navigation = () => (
   <div className={"navigation"}>
     <Link to={"/"}>Home</Link>
-    <Link to={"/test/1"}>Ülesanne 1</Link>
-    <Link to={"/test/2"}>Ülesanne 2</Link>
+    <Link to={"/test/1"}>Ülesanne 1 - Easy</Link>
+    <Link to={"/test/2"}>Ülesanne 2 - Easy</Link>
+    <Link to={"/test/3"}>Ülesanne 3 - Medium</Link>
   </div>
 );
 
@@ -49,7 +52,7 @@ const Home = () => (
   <div>
     Tere!
     <p>
-      ...
+      Menüüst leiad harjutusülesanded arvestuseks.
     </p>
   </div>
 );
