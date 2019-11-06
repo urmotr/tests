@@ -1,4 +1,7 @@
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./default.yaml');
 const app = express();
 const PORT = 3000;
 const bodyParser = require("body-parser");
@@ -6,7 +9,9 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.post("/api/register", (req,res)=>{
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.post("/api/v1/register", (req,res)=>{
   const age = req.body.age;
   const username = req.body.username;
   if(!req.body || !req.body.age || !req.body.username) return res.status(400).send("Bad request!");

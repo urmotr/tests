@@ -1,5 +1,5 @@
 import React from "react";
-import "./test3.css";
+import "./css/test3.css";
 import example1 from "./images/1.png";
 import example2 from "./images/2.png";
 import example3 from "./images/3.png";
@@ -14,10 +14,11 @@ class Test3 extends React.PureComponent{
           </h3>
           <p>
             <code>server.js</code> failis on defineeritud otspunkt
-            <code>POST /api/register</code>.
+            <code>POST /api/v1/register</code>.
             Kui kasutaja vajutab "Send", siis peab frontend kasutama seda REST teenust
             ning saatma "username" ja "age" väärtused backendi.
             Server annab vastuseks teksti, mis tuleb kuvada ekraanil.
+            API kirjeldus on lehel <a href={"http://localhost:3000/api-docs/"}>http://localhost:3000/api-docs/</a>
           </p>
           <h3>
             Näited:

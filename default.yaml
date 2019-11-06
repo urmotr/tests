@@ -1,0 +1,44 @@
+openapi: '3.0.0'
+info:
+  title: TLU
+  description: ""
+  version: "1.0.0"
+paths:
+  /api/v1/register:
+    post:
+      operationId: register
+      description: ""
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                age:
+                  type: string
+                username:
+                  type: string
+      responses:
+        200:
+          description: OK.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Success, Peter!
+        400:
+          description: Bad request, invalid data
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Bad request!
+        401:
+          description: Bad request, invalid data
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Grow up, Mari!
+

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import notFoundImage from "./404_Error.jpg";
-import "./main.css";
+import notFoundImage from "./images/404_Error.jpg";
+import "./css/main.css";
 import PropTypes from "prop-types";
 import "typeface-roboto";
 import Test1 from "./Test1.jsx";
