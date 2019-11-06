@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack",
-    "start": "node ./server.js",
+    "start": "node server/server.js",
     "start:backend": "npm run start",
     "start:frontend": "webpack-dev-server --open --mode=\"development\"",
     "lint": "eslint --version"
@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.8",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-icons": "^3.8.0",
@@ -40,6 +40,7 @@
     "eslint-loader": "^3.0.0",
     "eslint-plugin-react": "^7.14.3",
     "file-loader": "^4.2.0",
+    "mongodb-memory-server": "^6.0.1",
     "prop-types": "^15.7.2",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
