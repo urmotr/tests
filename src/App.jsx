@@ -8,6 +8,7 @@ import Test1 from "./Test1.jsx";
 import Test2 from "./Test2.jsx";
 import Test3 from "./Test3.jsx";
 import Test4 from "./Test4.jsx";
+import christmas from "./images/christmas.gif";
 
 const App = () => (
   <BrowserRouter>
@@ -33,6 +34,9 @@ const Layout = ({children}) => (
     </div>
     <div className={"content"}>
       {children}
+    </div>
+    <div className={"christmas-container"}>
+      <img src={christmas}/>
     </div>
   </div>
 );
