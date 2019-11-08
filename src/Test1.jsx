@@ -1,6 +1,6 @@
 import React from "react";
-import test1Example from "./test1_example.png";
 import PropTypes from "prop-types";
+import test1Example from "./images/test1_example.png";
 
 // eslint-disable-next-line
 const ITEMS = [
