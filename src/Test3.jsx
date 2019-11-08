@@ -25,7 +25,17 @@ class Test3 extends React.PureComponent{
       },
       body: JSON.stringify(this.state)
     })
-        .then( res=> res.json());
+        .then( res=> {
+          return res.text();
+        })
+        .then(text => {
+          console.log("Text", text);
+          this.setState({
+            responseText: text,
+          });
+        }).catch(err =>{
+          console.log(err);
+    });
 
   }
   handleChange(event) {
@@ -75,10 +85,10 @@ class Test3 extends React.PureComponent{
         </form>
 
         {
-          // this.state.responseText &&
-          // <div className={"response"}>
-          //   {this.state.responseText}
-          // </div>
+          this.state.responseText &&
+          <div className={"response"}>
+            {this.state.responseText}
+          </div>
         }
 
       </div>
