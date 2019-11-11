@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import notFoundImage from "./images/404_Error.jpg";
 import "./css/main.css";
@@ -9,6 +9,8 @@ import Test2 from "./Test2.jsx";
 import Test3 from "./Test3.jsx";
 import Test4 from "./Test4.jsx";
 import christmas from "./images/christmas.gif";
+import classnames from "classnames";
+import {GiHamburgerMenu} from "react-icons/gi";
 
 const App = () => (
   <BrowserRouter>
@@ -27,12 +29,31 @@ const App = () => (
 
 export default App;
 
-const Layout = ({children}) => (
-  <div className={"layout"}>
+const Layout = ({children}) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={classnames("layout", {open})}>
+      <Header onClick={() => setOpen(!open)}/>
+      <BelowHeader>
+        {children}
+      </BelowHeader>
+      <div className="footer">
+        "As long as you're going to be thinking anyway, think big."
+      </div>
+    </div>
+  );
+};
+
+Layout.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired
+};
+
+const BelowHeader = ({children}) => (
+  <div className="below-header">
     <div className={"drawer"}>
       <Navigation />
     </div>
-    <div className={"content"}>
+    <div className={"task-content"}>
       {children}
     </div>
     <div className={"christmas-container"}>
@@ -41,8 +62,23 @@ const Layout = ({children}) => (
   </div>
 );
 
-Layout.propTypes = {
+BelowHeader.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired
+};
+
+const Header = ({onClick}) => {
+  return (
+    <div className="header" style={{display: "flex"}}>
+      <div className="typical-flex" style={{paddingLeft: 5}}>
+        <GiHamburgerMenu onClick={onClick}/>
+        <span style={{fontSize: 10}}>menu</span>
+      </div>
+    </div>
+  );
+};
+
+Header.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 const Navigation = () => (
