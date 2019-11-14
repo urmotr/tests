@@ -8,23 +8,32 @@ import Test1 from "./Test1.jsx";
 import Test2 from "./Test2.jsx";
 import Test3 from "./Test3.jsx";
 import Test4 from "./Test4.jsx";
+import Test5 from "./Test5.jsx";
+import Test6 from "./Test6.jsx";
 import christmas from "./images/christmas.gif";
 import classnames from "classnames";
 import {GiHamburgerMenu} from "react-icons/gi";
+import { ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => (
-  <BrowserRouter>
-    <Layout>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/test/1" exact component={Test1} />
-        <Route path="/test/2" exact component={Test2} />
-        <Route path="/test/3" exact component={Test3} />
-        <Route path="/test/4" exact component={Test4} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
-  </BrowserRouter>
+  <>
+    <ToastContainer  position={toast.POSITION.TOP_RIGHT} />
+    <BrowserRouter>
+      <Layout>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/test/1" exact component={Test1} />
+          <Route path="/test/2" exact component={Test2} />
+          <Route path="/test/3" exact component={Test3} />
+          <Route path="/test/4" exact component={Test4} />
+          <Route path="/test/5" exact component={Test5} />
+          <Route path="/test/6" exact component={Test6} />
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
+    </BrowserRouter>
+  </>
 );
 
 export default App;
@@ -88,6 +97,8 @@ const Navigation = () => (
     <Link to={"/test/2"}>Ülesanne 2 - Easy</Link>
     <Link to={"/test/3"}>Ülesanne 3 - Medium</Link>
     <Link to={"/test/4"}>Ülesanne 4 - Medium</Link>
+    <Link to={"/test/5"}>Ülesanne 5 - H. Sapiens</Link>
+    <Link to={"/test/6"}>Ülesanne 6 - Darwin</Link>
   </div>
 );
 

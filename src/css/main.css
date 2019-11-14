@@ -31,6 +31,7 @@ body{
 
 .layout .below-header{
   display: flex;
+  height:100%;
 }
 
 .layout .header {
@@ -55,6 +56,7 @@ body{
 
 .layout .task-content{
   padding:25px;
+  flex-grow: 1;
 }
 
 .layout .navigation {
@@ -155,3 +157,101 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.style-2 input{
+  border: 1px solid #6e6e6e;
+  border-radius: 5px;
+  padding: 10px 5px;
+  background: rgb(242, 242, 242);
+  outline: red;
+}
+
+.style-2 select {
+  border: 1px solid #6e6e6e;
+  border-radius: 5px;
+  padding: 10px 5px;
+  background: rgb(242, 242, 242);
+  outline: red;
+}
+
+.style-2 .row {
+  display: flex;
+  align-items: center;
+}
+
+h3.style-2 {
+  border-bottom: 1px solid #dddddd;
+  width:100%;
+  padding-bottom:5px;
+  font-weight: 400;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+form.style-2{
+  display: block;
+}
+
+form .row {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+input {
+  border: 0;
+  border-bottom: 1px solid #d5d5d5;
+  padding-left: 15px;
+  font-size: 16px;
+  font-family: "Roboto Light", serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+.response {
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.images img{
+  width: 400px;
+  border: 1px dashed orange;
+}
+
+.ds {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+
+table {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+table th {
+  text-align: start;
+  font-weight: 400;
+}
+
+.searchResults {
+  display: flex;
+  padding: 15px 0px;
+  border: 1px solid black;
+}
+
+.searchResults div {
+  margin-left: 30px;
+}
+
+
