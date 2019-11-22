@@ -9,13 +9,22 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'static/bundle.js'
+  },
+  resolve: {
+    extensions: [ '.js', '.jsx', '.tsx', '.ts'],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([
       {
-        from: "public"
+        from: 'public/index.html',
+      }
+    ]),
+    new CopyPlugin([
+      {
+        from: 'public/videos',
+        to: 'static/videos'
       }
     ])
   ],
@@ -45,6 +54,9 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
+            options: {
+              outputPath: 'static/fonts'
+            }
           },
         ],
       },
