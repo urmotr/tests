@@ -1,11 +1,53 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 class Test7 extends React.PureComponent {
+    constructor(props){
+        super(props);
+        this.state ={
+            name:"abs",
+            address:"",
+            phone: 55555555,
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state);
+        fetch("/api/v1/users/t2", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+        })
+            .then(() => {
+                console.log("Kasutaja lisatud");
+            })
+            .catch(err =>{
+                console.log("Error", err);
+            });
+    }
+
+    handleChange(event) {
+        console.log(this.state);
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
   render() {
     return (
       <div>
-        <Task />
+        <Task phone={this.state.phone}
+              key={this.state.phone}
+              address={this.state.address}
+              name={this.state.name}
+        onChange={this.handleChange}
+        onClick={this.handleSubmit}/>
         implement
+
       </div>
     );
   }
@@ -13,7 +55,7 @@ class Test7 extends React.PureComponent {
 
 export default Test7;
 
-const Task = () => (
+const Task = ({name, address, phone, onChange, onClick}) => (
   <div>
     <h3>
       Ülesanne 7:
@@ -34,5 +76,33 @@ const Task = () => (
         <a href={'https://reactjs.org/docs/forms.html'}>https://reactjs.org/docs/forms.html</a></li>
 
     </ol>
+      <div className="ds">
+          <form className="ds-item style-2">
+              <h3 className="style-2">Kasutaja lisamine</h3>
+              <div className={"row"}>
+                  <label htmlFor="fullName">Nimi</label>
+                  <input value={name} onChange={onChange} name="name" type="text" />
+              </div>
+              <div className={"row"}>
+                  <label htmlFor="burger">Telefon</label>
+                  <input value={phone} onChange={onChange} name="phone" type="number" />
+              </div>
+              <div className={"row"}>
+                  <label htmlFor="drink">Elukoht</label>
+                  <input value={address} onChange={onChange} name="address" type="text" />
+              </div>
+              <button style={{width: "100%"}} onClick={onClick} value={"Submit"}>
+                  Lisa
+              </button>
+          </form>
+  </div>
   </div>
 );
+
+Task.propTypes = {
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    name: PropTypes.string,
+    phone: PropTypes.number,
+    address: PropTypes.string
+};

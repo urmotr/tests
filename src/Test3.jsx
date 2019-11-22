@@ -80,7 +80,6 @@ class Test3 extends React.PureComponent{
           <div className={"row"} style={{justifyContent: "flex-end"}}>
             <button  value={"Submit"}>Send</button>
           </div>
-        </form>
 
         {
           this.state.responseText &&
