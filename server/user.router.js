@@ -23,6 +23,16 @@ router.get("/t1", (req, res) => {
   });
 });
 
+router.get("/onlineCount", (req, res) => {
+  //res.json(DB.getItems());
+    const random = Math.floor(Math.random() * 100);
+    console.log(random);
+    const test = {
+      random: random
+    };
+    res.send(JSON.stringify(test));
+});
+
 router.post("/t2", (req, res) => {
   console.log(req.body);
   const props = {

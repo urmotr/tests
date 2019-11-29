@@ -2,10 +2,32 @@ import React from "react";
 import OnlineCount from "../OnlineCount";
 
 class Test11 extends React.PureComponent {
-  state = {
-    onlineCount: 20,
-  };
+    constructor(props) {
+        super(props);
+        this.state = {
+            onlineCount: 20,
+        };
+    }
 
+    componentDidMount() {
+        window.setInterval(() =>{
+            fetch(`/api/v1/users/onlineCount`)
+                .then(res => {
+                    return res.json();
+                })
+                .then(count => {
+                    this.updateStatus(count.random);
+                })
+                .catch(err => {
+                    console.log("item page", err);
+                });
+        }, 3000);
+    }
+    updateStatus = (number) => {
+        this.setState({
+            onlineCount: number
+        });
+    };
   render() {
     return (
       <div>
