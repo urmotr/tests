@@ -8,9 +8,9 @@ class Test11 extends React.PureComponent {
             onlineCount: 20,
         };
     }
-
+    status;
     componentDidMount() {
-        window.setInterval(() =>{
+        this.status = window.setInterval(() =>{
             fetch(`/api/v1/users/onlineCount`)
                 .then(res => {
                     return res.json();
@@ -21,13 +21,16 @@ class Test11 extends React.PureComponent {
                 .catch(err => {
                     console.log("item page", err);
                 });
-        }, 3000);
+        }, 1000);
     }
     updateStatus = (number) => {
         this.setState({
             onlineCount: number
         });
     };
+    componentWillUnmount() {
+        clearInterval(this.status);
+    }
   render() {
     return (
       <div>
