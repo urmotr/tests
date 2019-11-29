@@ -63,7 +63,7 @@ class Test9 extends React.PureComponent {
                       <input value={this.state.elukoht} onChange={this.handleChange}  name="elukoht" type="text" />
                   </div>
                   <button onClick={this.handleSubmit} style={{width: "100%", marginBottom: "10px"}} value={"Submit"}>
-                      Lisa
+                      Lisa/Uuenda
                   </button>
               </form>
           </div>
